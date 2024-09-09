@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consulta-Terrenos.Server", "Consulta-Terrenos.Server\Consulta-Terrenos.Server.csproj", "{6DDB0C40-A419-4103-BC03-0180519CA435}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "consulta-terrenos.client", "consulta-terrenos.client\consulta-terrenos.client.esproj", "{DDE2D17B-140F-4D9D-8BE2-834447B0915E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DDB0C40-A419-4103-BC03-0180519CA435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDB0C40-A419-4103-BC03-0180519CA435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDB0C40-A419-4103-BC03-0180519CA435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDB0C40-A419-4103-BC03-0180519CA435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE2D17B-140F-4D9D-8BE2-834447B0915E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE2D17B-140F-4D9D-8BE2-834447B0915E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE2D17B-140F-4D9D-8BE2-834447B0915E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DDE2D17B-140F-4D9D-8BE2-834447B0915E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE2D17B-140F-4D9D-8BE2-834447B0915E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE2D17B-140F-4D9D-8BE2-834447B0915E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44559E82-167C-4CB6-BE53-E765D263EB24}
+	EndGlobalSection
+EndGlobal
