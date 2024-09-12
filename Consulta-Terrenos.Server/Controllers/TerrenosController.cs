@@ -236,7 +236,7 @@ namespace Consulta_Terrenos.Server.Controllers
         private async Task<(double Latitude, double Longitude)?> Geocode(string localidade)
         {
             var httpClient = new HttpClient();
-            var apiKey = "AIzaSyD6swlNTZCW8-3HrhY-0Q4JzKJvnSO3rBc"; // Substitua pela sua chave de API do Google Maps
+            var apiKey = "chave"; // Substitua pela sua chave de API do Google Maps
             var url = $"https://maps.googleapis.com/maps/api/geocode/json?address={localidade}&key={apiKey}";
 
             var response = await httpClient.GetStringAsync(url);
