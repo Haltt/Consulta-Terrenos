@@ -35,7 +35,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
           },
@@ -75,7 +78,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "proxyConfig": "src/proxy.conf.js"
+            "proxyConfig": "src/proxy.conf.json"
           }
         },
         "extract-i18n": {
@@ -105,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "3e47dc99-8c31-4a77-90c2-dc41f48d446c"
   }
 }

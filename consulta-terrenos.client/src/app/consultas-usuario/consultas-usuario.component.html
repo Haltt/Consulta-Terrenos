@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Meus Números</li>
+      </ol>
+    </nav>
+    <div class="row text-center">
+      <div class="col">
+        <h2 class="display-6">Consultas dos Últimos 3 Meses</h2>
+        <table class="table table-striped fs-5" *ngIf="consultas.length > 0">
+          <thead>
+            <tr>
+              <th>Ano</th>
+              <th>Mês</th>
+              <th>Quantidade de Consultas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let consulta of consultas">
+              <td>{{ consulta.ano }}</td>
+              <td>{{ consulta.mes }}</td>
+              <td>{{ consulta.quantidadeConsultas }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <h2 class="display-6">Terrenos Favoritos</h2>
+        <h1 class="display-1">{{ quantidadeFavoritos }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="mensagemErro">{{ mensagemErro }}</div>
+
+<div *ngIf="consultas.length === 0 && !mensagemErro">
+  <p>Nenhuma consulta realizada nos últimos 3 meses.</p>
+</div>

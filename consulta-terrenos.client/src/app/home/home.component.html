@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Encontre o terreno ideal</h1>
+        <p class="col-lg-10 fs-4">Somos a maior plataforma especializada do Brasil, onde terrenos são negociados todos os dias. Já intermediamos milhares de negociações com assertividade e segurança.</p>
+        <p class="col-lg-10 fs-4">Faça já seu cadastro e confira nossas ferramentas!</p>
+      </div>
+      <div class="mx-auto col-5" *ngIf="!authService.isLoggedIn()">
+        <form class="p-4 border rounded-3 bg-body-tertiary" (ngSubmit)="cadastrarUsuario()">
+          <!-- Mensagens de sucesso ou erro -->
+          <div *ngIf="mensagem" class="alert alert-success">{{ mensagem }}</div>
+          <div *ngIf="erro" class="alert alert-danger">{{ erro }}</div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" [(ngModel)]="usuario.nome" name="nome">
+            <label for="floatingInput">Nome</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email">
+            <label for="floatingInput">E-mail</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" [(ngModel)]="usuario.areaInteresse" name="areaInteresse">
+            <label for="floatingInput">Área de Interesse</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" [(ngModel)]="usuario.senhaCriptografada" name="senhaCriptografada">
+            <label for="floatingPassword">Senha</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" [(ngModel)]="usuario.confirmarSenha" name="confirmarSenha">
+            <label for="floatingPasswordConfirma">Confirmar Senha</label>
+          </div>
+          <button class="w-100 btn btn-lg btn-warning" type="submit">CADASTRO GRATUIRO</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Ao clicar em Inscrever-se, você concorda com os termos de uso.</small>
+        </form>
+      </div>
+      <div class="mx-auto col-5 text-info" *ngIf="authService.isLoggedIn()">
+        <h1 class="display-6 fw-bold lh-1 mb-3">Olá, </h1>
+        <p class="col-lg-10 fs-4">No menu superior você encontra nossas ferramentas criadas especialmente para você.</p>
+        <ul>
+          <li>Terrenos: Realize busca de terrenos.</li>
+          <li>Favoritos: Marque seus terrenos para consultar depois.</li>
+          <li>Dados: Veja quantidade de consultas nos últimos 3 meses.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

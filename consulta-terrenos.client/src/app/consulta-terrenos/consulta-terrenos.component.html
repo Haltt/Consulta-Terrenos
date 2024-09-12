@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Consulta de Terrenos</li>
+      </ol>
+    </nav>
+
+    <h2 class="display-6">Consulta Avançada de Terrenos</h2>
+    <div class="row mb-2">
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" [(ngModel)]="buscaAvancada.localidade" class="form-control" name="localidade">
+          <label for="floatingInput">Localidade (Nome ou Coordenadas)</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" [(ngModel)]="buscaAvancada.raio" class="form-control" name="raio">
+          <label for="floatingInput">Raio (metros)</label>
+        </div>
+      </div>
+    </div>
+    <button (click)="buscarTerrenosAvancados()" class="btn btn-light">Buscar Avançado</button>
+
+    <h2 class="display-6 mt-2">Consulta de Terrenos</h2>
+    <form (ngSubmit)="buscarTerrenos()" class="mb-4">
+      <div class="row mb-2">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" [(ngModel)]="filtros.tamanhoMin" class="form-control" name="tamanhoMin">
+            <label for="floatingInput">Tamanho (min)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" [(ngModel)]="filtros.tamanhoMax" class="form-control" name="tamanhoMax">
+            <label for="floatingInput">Tamanho (max)</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" [(ngModel)]="filtros.precoMin" class="form-control" name="precoMin">
+            <label for="floatingInput">Faixa de Preço (min)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" [(ngModel)]="filtros.precoMax" class="form-control" name="precoMax">
+            <label for="floatingInput">Faixa de Preço (max)</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" [(ngModel)]="filtros.tipoUso" class="form-control" name="tipoUso">
+            <label for="floatingInput">Tipo de Uso</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" [(ngModel)]="filtros.areaInteresse" class="form-control" name="areaInteresse">
+            <label for="floatingInput">Área de Interesse</label>
+          </div>
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-light">Buscar Terreno</button>
+    </form>
+
+    <!-- Exibir mensagem de erro -->
+    <div *ngIf="mensagemErro" class="alert alert-warning mt-3">
+      {{ mensagemErro }}
+    </div>
+
+    <!-- consulta-terrenos.component.html -->
+    <div *ngIf="pesquisaRealizada && terrenos.length > 0">
+      <div class="row row-cols-4 g-2">
+        <div *ngFor="let terreno of terrenos" class="">
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ terreno.coordenadas }}</h5>
+                <p>Tamanho: {{ terreno.tamanho }} m²</p>
+                <p>Preço: R{{ terreno.preco | currency }}</p>
+                <p>Tipo de uso: {{ terreno.tipoUso }}</p>
+                <!-- Botão para Favoritar ou Desfavoritar -->
+                <a (click)="favoritarTerreno(terreno.id)" style="cursor: pointer" class="me-2"
+                   [class.text-warning]="!isFavorito(terreno.id)"
+                   [class.text-danger]="isFavorito(terreno.id)">
+                  {{ isFavorito(terreno.id) ? 'Remover Favorito' : 'Favoritar' }}
+                </a>
+                <a (click)="abrirDetalhes(terreno.id)" class="card-link text-success" style="cursor: pointer">Mais Detalhes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

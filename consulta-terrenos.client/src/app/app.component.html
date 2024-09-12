@@ -1,24 +1,52 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
+<header>
+  <div class="px-3 py-2 text-bg-dark border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a routerLink="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-warning text-decoration-none">
+          <fa-icon [icon]="faGlobe" style="font-size: 40px"></fa-icon> <h2 class="display-6 ms-3">Consulta Terrenos</h2>
+        </a>
 
-<p>This component demonstrates fetching data from the server.</p>
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+          <li>
+            <a routerLink="/" class="nav-link text-white" *ngIf="authService.isLoggedIn()">
+              <fa-icon [icon]="faHouse" class="d-block mx-auto text-center" style="font-size: 28px"></fa-icon>
+              Home
+            </a>
+          </li>
+          <li>
+            <a routerLink="/consulta-terrenos" class="nav-link text-white" *ngIf="authService.isLoggedIn()">
+              <fa-icon [icon]="faMap" class="d-block mx-auto text-center" style="font-size: 28px"></fa-icon>
+              Terrenos
+            </a>
+          </li>
+          <li>
+            <a routerLink="/meus-terrenos-favoritos" class="nav-link text-white" *ngIf="authService.isLoggedIn()">
+              <fa-icon [icon]="faStar" class="d-block mx-auto text-center" style="font-size: 28px"></fa-icon>
+              Favoritos
+            </a>
+          </li>
+          <li>
+            <a routerLink="/consultas-usuario" class="nav-link text-white" *ngIf="authService.isLoggedIn()">
+              <fa-icon [icon]="faChartSimple" class="d-block mx-auto text-center" style="font-size: 28px"></fa-icon>
+              Dados
+            </a>
+          </li>
+          <li>
+            <a routerLink="/login" class="nav-link text-success" *ngIf="!authService.isLoggedIn()">
+              <fa-icon [icon]="faLogin" class="d-block mx-auto text-center" style="font-size: 28px"></fa-icon>
+              Login
+            </a>
+          </li>
+          <li>
+            <a (click)="authService.logout()" class="nav-link text-danger" style="cursor: pointer" *ngIf="authService.isLoggedIn()">
+              <fa-icon [icon]="faLogout" class="d-block mx-auto text-center" style="font-size: 28px"></fa-icon>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+<router-outlet></router-outlet>

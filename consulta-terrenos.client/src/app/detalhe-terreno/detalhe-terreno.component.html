@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/consulta-terrenos">Consulta de Terrenos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Consulta de Terrenos</li>
+      </ol>
+    </nav>
+
+    <div *ngIf="terreno">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ terreno[0].coordenadas }}</h5>
+          <p>Tamanho: {{ terreno[0].tamanho }} m²</p>
+          <p>Preço: R{{ terreno[0].preco | currency }}</p>
+          <p>Tipo de uso: {{ terreno[0].tipoUso }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!terreno">
+      <p>Carregando detalhes do terreno...</p>
+    </div>
+  </div>
+</div>
